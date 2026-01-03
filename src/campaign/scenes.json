@@ -1,0 +1,79 @@
+{
+    "example_cutscene":{
+        "type": "cutscene",
+        "image": "example.bmp",
+        "adjacent": [
+            {"next": "example_village"}
+        ],
+        "dialog": "example_dialog"
+    },
+    
+    "example_village": {
+        "type": "village",
+        "image": "example.bmp",
+        "adjacent": [
+            {"example shop": "example_shop"},
+            {"examle dungeon": "example_dungeon"}
+        ],
+        "npc": "example_character",
+        "dialog": [
+            {"placeholder text": "example_dialog"}
+        ]
+    },
+
+    "example_shop": {
+        "type": "shop",
+        "image": "example.bmp",
+        "adjacent": [
+            {"example shop": "example_village"}
+        ],
+        "npc": "example_character",
+        "dialog": [
+            {"placeholder text": "example_dialog"}
+        ],
+        "itens": [
+            "example_consumable",
+            "example_key"
+        ]
+    },
+
+    "example_dungeon": {
+        "type": "dungeon",
+        "image": "example.bmp",
+        "adjacent": [
+            {"example village": "example_village"},
+            {"example boss": "example_boss"}
+        ],
+        "enemies": [
+            "example_character",
+            "example_character"
+        ],
+        "chance": 10
+    },
+
+    "example_boss":{
+        "type": "boss",
+        "image": "example.bmp",
+        "adjacent": [
+            {"example dungeon": "example_dungeon"},
+            {"example end": "example_cutscene"}
+        ],
+        "enemies": [
+            "example_character",
+            "example_character"
+        ],
+        "start_dialog": "example_dialog",
+        "defeat_dialog": "example_dialog"
+    },
+
+
+    
+    "start_scene":{
+        "type": "cutscene",
+        "image": "example.bmp",
+        "adjacent": [
+            {"next": "example_village"}
+        ],
+        "dialog": "example_dialog"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "example_quest":{
+        "name": "Example quest",
+        "description": "just placeholder for a quest",
+        "condition": "get_item",
+        "condition_param": ["example_key"],
+        "dialog_start": "example_dialog",
+        "dialog_end": "example_dialog"
+    }
+}

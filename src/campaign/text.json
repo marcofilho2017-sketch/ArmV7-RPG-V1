@@ -1,0 +1,6 @@
+{
+    "example_dialog":[
+        ["Example Character", "Hello! this is a example dialog, to be used as example"],
+        ["I dont know what to write", "Yeah, thats it"]
+    ]
+}

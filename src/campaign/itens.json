@@ -1,0 +1,38 @@
+{
+    "example_weapon":{
+        "name": "example weapon",
+        "description": "weapon to be used as example",
+        "type": "weapon",
+        "effect": {
+            "attack": 10
+        },
+        "value": 10
+    },
+    "example_armor":{
+        "name": "example armor",
+        "description": "armor to be used as example",
+        "type": "armor",
+        "effect": {
+            "defense": 10
+        },
+        "value": 10
+    },
+    "example_consumable":{
+        "name": "example consumable",
+        "description": "item that can be used on the player",
+        "type": "consumable",
+        "effect": {
+            "attack": 10,
+            "defense": 10,
+            "duration": 2,
+            "life": 5
+        },
+        "value": 10
+    },
+    "example_key":{
+        "name": "example key item",
+        "description": "its a item thats relevant for a quest",
+        "type": "key",
+        "value": 10
+    }
+}

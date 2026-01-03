@@ -1,0 +1,29 @@
+{
+    "example_character": {
+        "name": "example character",
+        "description": "a placeholder character",
+        "max_life": 10,
+        "max_mana": 5,
+        "xp": 10,
+        "level": 2,
+        "money": 169,
+        "attack": 2,
+        "defense": 3,
+        "weapon": "example_weapon",
+        "armor": "example_armor",
+        "itens": [
+            "example_consumable",
+            "example_key"
+        ],
+        "personality": {
+            "attack_chance": 1,
+            "defense_chance": 5,
+            "spell_chance": 2,
+            "item_chance": 0
+        },
+        "spells": [
+            "example_spell"
+        ],
+        "isBoss": false
+    }
+}

@@ -1,0 +1,152 @@
+	(NOME A DEFINIR)
+		Edição 0.1
+
+Sumário:
+
+- Personagens
+- Cenas
+- Diálogos
+- Batalha
+- Efeitos
+- Feitiços
+- Itens
+- Missões
+
+
+
+		-- Personagens --
+
+"Personagem" será termo usado para qualquer ator no jogo, ou seja, ao mesmo tempo que o jogador é um personagem, qualquer inimigo, NPC, boss, etc é dado por um "Personagem".
+Um personagem tem as seguintes propriedades:
+
+-------Propriedade-------+---------------------------Descrição-------------------------------------------------------------------------------+
+- Nome					 | Nome que vai aparecer no jogo                                                                                     |
+- Descrição              | Descrição para o personagem (pode ser util para guiar o jogador durante a batalha)                                |
+- Vida máxima            | Vida inicial e máxima em uma batalha                                                                              |
+- Mana máxima            | Mana inicial e máxima em uma batalha                                                                              |
+- XP                     | XP atual (para o jogador) ou XP a ser dado após ser derrotado em uma batalha (Atualmente apenas cosmético)        |
+- Nível                  | Nível do personagem (Atualmente apenas cosmético)                                                                 |
+- Dinheiro               | Dinheiro atual (para o jogador) ou Dinheiro a ser dado após ser derrotado em uma batalha                          |
+- Ataque base            | Ataque padrão do personagem, sem itens ou efeitos                                                                 |
+- Defesa base            | Defesa padrão do personagem, sem itens ou efeitos                                                                 |
+- Itens guardados        | Itens utilizáveis para o personagem (A ser explicado mais abaixo)                                                 |
+- Arma equipada          | Item equipado como arma                                                                                           |
+- Armadura equipada      | Item equipado como armadura                                                                                       |
+- Personalidade          | Define padrões de comportamento durante a batalha (mais explicações abaixo)                                       |
+- Feitiços conhecidos    | Feitiços que o personagem pode utilizar, que aplicam efeito à ele ou a um inimigo (mais explicações abaixo)       |
+- Efeitos ativos         | Efeitos afetando o personagem durante a batalha                                                                   |
+- Indicador de chefão    | Indica se o personagem é um chefe ou não, isso afeta certas dinamicas de batalha e de zoneamento                  |
+-------------------------+-------------------------------------------------------------------------------------------------------------------+
+
+
+
+		-- Cenas --
+		
+Cenas são os compositores principais da estrutura geral do jogo, todo o jogo é composto de cenas.
+Elas podem ser regiões de jogo de diferentes categorias, sendo estas as seguintes:
+	- Cutscene   | Cenas dedicada a realizar apenas diálogos
+	- Vila       | Cenas onde é possivel interagir com 1 npc, podendo conseguir missões a partir dele
+	- Loja       | Cenas onde é possivel interagir com 1 npc lojista, e comprar itens
+	- Masmorra   | Cenas onde batalhas aleatórias podem acontecer (Mais sobre batalhas abaixo)
+	- Chefão     | Cenas onde batalhas irão garantidamente acontecer, uma única vez
+	
+- As cenas de Vila, masmorra e chefão podem apontar para até 4 outras cenas, permitindo mover o personagem pelo jogo.
+- A cena de Loja aponta sempre para a última cena que chamou ela, permitindo retornar.
+- As cutscenes não permitem escolha de próxima cena por parte do jogador, elas sempre forçam o jogador a ir para uma
+cena seguinte.
+
+
+
+		-- Diálogos --
+Diálogos são uma sequência de frases, seguindo o modelo:
+	"Personagem": "texto"
+
+O jogador pressiona o botão de confirmar para passar para a próxima frase, e ao final da sequência, o diálogo termina
+
+
+
+		-- Batalha --
+Batalhas são um momento do jogo aonde o jogador precisa batalhar contra 1 a 4 inimigos.
+
+Uma batalha ocorre em rodadas, seguindo sempre o seguinte formato:
+
+- 1: Jogador
+- 2: Inimigo 1
+- 3: Inimigo 2
+- 4: Inimigo 3
+- 5: Inimigo 4
+
+Durante uma rodada, o personagem pode realizar uma de 4 ações:
+
+- Atacar
+- Defender
+- Usar um feitiço
+- Usar um item
+
+Após realizar uma destas ações, o personagem passa sua rodada para o próximo agir
+		
+Ao atacar, é aflingido o seguinte valor de dano no oponente:
+	Dano = (Ataque Base) + (Ataque arma) + (Ataque armadura) + (Bonus efeitos)
+
+E o dano final recebido será dado por:
+	Dano final = Dano - Defesa, onde,
+	Defesa = (Defesa Base) + (Defesa arma) + (Defesa armadura) + (Bonus efeitos)
+
+Ao início de cada rodada, antes de agir, o personagem tomará o efeito negativo
+
+
+
+		-- Efeitos --
+
+Um efeito é dado por um bónus ou redução nas propriedades de um personagem, sendo estas:
+	- Ataque
+	- Defesa
+	- Vida
+	
+Também é possivel definir por quantas rodadas esse efeito será mantido.
+
+
+
+		-- Feitiços --
+
+Feitiços são efeitos aplicados a si mesmo ou á um outro personagem, tendo um custo de mana para serem utilizados
+	
+
+
+		-- Itens --
+
+Itens são objetos que podem ser utilizados para diferentes propósitos no sistema, podendo ser:
+	- Armas  			| Itens equipáveis como arma, para serem utilizados no combate, geralmente tem alto valor de ataque
+	- Armaduras         | Itens equipaveis como armadura, para serem utilizados no combate, geralmente tem alto valor de defesa
+	- Consumíveis       | Itens que podem ser utilizados durante batalha para aplicar efeitos ao jogador
+	- Itens chave       | Itens que são relevantes para missões
+	
+	
+
+
+		-- Missões --
+Missões são a maneira que o jogo progride até o seu final, de maneira linear (missões secundárias podem ser implementadas no futuro).
+As missões são montadas da seguinte maneira. Todas possuem um requisito para serem completas, que podem ser:
+	- Conseguir um item
+	- Dar um item a um NPC
+	- Matar um inimigo
+	- Matar uma quantidade X de inimigos do mesmo tipo
+	- Falar com um NPC
+	- Chegar a um lugar específico
+	
+Logo após uma quest ser completa, a próxima quest se iniciará. Então é ideal fatiar as quests de maneira bem pensada, de modo a permitir uma direção clara para onde o jogador deve ir.
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+	TODO List:
+
+	- Drivers
+	+- All Ok
+	- Images
+	+- Create images for the campaign (TBD)
+	- Campaign
+	 |

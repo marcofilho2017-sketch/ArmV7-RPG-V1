@@ -1,0 +1,14 @@
+{
+    "example_spell":{
+        "name": "example spell",
+        "description": "spell to be used as example",
+        "effect": {
+            "attack": 0,
+            "defense": 0,
+            "life": 8,
+            "duration": 2
+        },
+        "cost": 7,
+        "isFriendly": true
+    }
+}

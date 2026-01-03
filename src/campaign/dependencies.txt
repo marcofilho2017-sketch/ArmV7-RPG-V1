@@ -1,0 +1,28 @@
+Who depends on who
+
+DIALOGS:
+	- NONE
+
+ITENS:
+	- NONE
+	
+SPELL:
+	- NONE
+
+CHARACTERS:
+	- ITENS
+	- SPELLS
+
+QUESTS:
+	- ITENS
+	- CHARACTERS
+	- DIALOGS
+
+SCENES:
+	- IMAGE
+	- ITENS
+	- CHARACTERS
+	- DIALOGS
+
+
+	
